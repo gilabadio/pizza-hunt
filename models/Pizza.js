@@ -41,7 +41,9 @@ const PizzaSchema = new Schema(
   }
 );
 
-
+PizzaSchema.virtual('commentCount').get(function(){
+    return this.comments.length;
+});
 
 // creae the Pizza model using the PizzaSchema
 const Pizza = model('Pizza', PizzaSchema);
